@@ -15,7 +15,9 @@
     "paper-checkbox": "PolymerElements/paper-checkbox#~1.1.0",
     "paper-input": "PolymerElements/paper-input#~1.1.5",
     "paper-date-picker": "~0.1.5",
-    "paper-card": "PolymerElements/paper-card#~1.1.1"
+    "paper-card": "PolymerElements/paper-card#~1.1.1",
+    "iron-icons": "PolymerElements/iron-icons#~1.1.2",
+    "paper-fab": "PolymerElements/paper-fab#~1.1.2"
   },
   "devDependencies": {
     "web-component-tester": "*"

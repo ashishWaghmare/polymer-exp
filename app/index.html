@@ -44,6 +44,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/sky/sky.css">
   <!-- endbuild-->
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
@@ -55,139 +56,133 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- endreplace-->
 
   <!-- For shared styles, shared-styles.html import in elements.html -->
-  <style is="custom-style" include="shared-styles"></style>
+  <style is="custom-style" include="shared-styles">
+      body {
+        padding: 15px;
+        @apply(--layout-fullbleed);
+        @apply(--paper-font-common-base);
+      }
+      neon-animated-pages {
+        height: 100%;
+      }
+      .large {
+        width: 100%
+      }
+      .button {
+        text-align: center;
+        width: 120px;
+        height: 32px;
+        line-height: 32px;
+        border-radius: 2px;
+        font-size: 0.9em;
+        background-color: #fff;
+        color: #646464;
+      }
+      .button.blue {
+        background-color: #4285f4;
+        color: #fff;
+      }
+      .button.raised {
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+      }
+      .button.back {
+        position: fixed;
+        top: 30px;
+        left: 30px;
+      }
+      .card-contents {
+        @apply(--layout-vertical);
+        @apply(--layout-center-center);
+        @apply(--layout-fit);
+      }
+      .button-container {
+        @apply(--layout-flex);
+        @apply(--layout-horizontal);
+        @apply(--layout-around-justified);
+      }
+      .flex-end-justified {
+            @apply(--layout-horizontal);
+            @apply(--layout-end-justified);
+          }
+    </style>
+   </head>
 
-</head>
-
-<body unresolved class="fullbleed layout vertical">
+<body >
+ <!-- Main Content -->
+  
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
-
-
-      <!-- Main Area -->
-      <paper-header-panel main id="headerPanelMain" condenses keep-condensed-header>
-
-        <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar">
-          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span class="flex"></span>
-
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
-
-          <!-- Application name -->
-          <div class="middle middle-container center horizontal layout">
-            <div class="app-name">Risk Advisor</div>
-          </div>
-
-
-        </paper-toolbar>
-
-
-               
-
-        <!-- Main Content -->
-        <div class="content">
+  <div class="content">
+      <form is="iron-form" id="form" method="post" action="/api/form">
+      <iron-pages selected="0">
+          <section>
+            <paper-card >
+                <paper-toolbar>
+                    <div>Gender</div>
+                </paper-toolbar>
+                <div class="card-content">
+                  When I see things like #search-item .search-article, #search-item .search-article, and #search-item .search-article I sense you are overspecifying your CSS which makes writing concise jQuery very difficult. This should be avoided if at all possible.
+                </div>
+                <paper-radio-group selected="male">
+                        <paper-radio-button name="male">Male</paper-radio-button>
+                        <paper-radio-button name="female">Female</paper-radio-button>
+                        <paper-radio-button name="other">Others</paper-radio-button>
+                </paper-radio-group>
+                <div class="card-actions flex-end-justified">
+                  <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
+                </div>
+            </paper-card>
+          </section>
           
-               
-         
-              
-                <form is="iron-form" id="form" method="post" action=" ">
-                  <h2 class="page-title">Gender</h2>
-                      <paper-radio-group selected="">
-                      <paper-radio-button name="male">Male</paper-radio-button>
-                      <paper-radio-button name="female">Female</paper-radio-button>
-                      <paper-radio-button name="other">Others</paper-radio-button>
-                    </paper-radio-group>
-                  
-                  <h2 class="page-title">Tobacco</h2>
-                  <paper-radio-group selected="big">
+          <section>
+            <paper-card heading="Tobacco">
+              <div class="card-content">
+                 <paper-radio-group selected="big">
                     <paper-radio-button name="tobaccoyes">Yes</paper-radio-button>
                     <paper-radio-button name="tobaccono">No</paper-radio-button>
                   </paper-radio-group>
-                  <paper-input name="firstname" label="First Name"></paper-input>
-                  <paper-input name="lastname" label="Last Name"></paper-input>
-                  <h2 class="page-title">Date of Birth</h2>
-                  <paper-input name="dob" type="date" label="dd/mm/yy"></paper-input>
-                  <h2 class="page-title">Height</h2>
-                  <paper-input name="heightfeet" type="number" label="feet"></paper-input>
-                  <paper-input name="heightinches" type="number" label="inches"></paper-input>
-                  <h2 class="page-title">Weight</h2>
-                  <paper-input name="weight" type="number" label="kilogram"></paper-input>
-              
-                  <paper-button raised onclick="submitForm()">Submit</paper-button>
-                </form>
-              
-              <paper-material elevation="1">
-                <my-greeting></my-greeting>
-                 <paper-button>link</paper-button>
-                  <paper-button raised>raised</paper-button>
-                  <paper-button toggles raised>toggles</paper-button>
-                  <paper-button disabled>disabled</paper-button>
-                <p class="paper-font-subhead">You now have:</p>
-
-
-                <paper-radio-button>Item label</paper-radio-button>
-
-                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
-                <paper-radio-group selected="small">
-                    <paper-radio-button name="small">Small</paper-radio-button>
-                    <paper-radio-button name="medium">Medium</paper-radio-button>
-                    <paper-radio-button name="large">Large</paper-radio-button>
-              </paper-radio-group>
-              </paper-material>
-              <paper-material elevation="1">
-                <p class="paper-font-body2">This is another card.</p>
+              </div>
+              <div class="card-actions flex-end-justified">
+                  <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
+                </div>
+            </paper-card>
+          </section>
+          
+          <section>
+          <paper-card heading="Card Title">
+            <div class="card-content">Some content</div>
+            <div class="card-actions flex-end-justified">
+                  <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
+                </div>
+          </paper-card>
+          </section>
+          
+          <paper-button raised onclick="submitForm()">Submit</paper-button>
                 
-                  <paper-checkbox name="male">Male</paper-checkbox>
-                  <paper-checkbox name="female" checked>Female</paper-checkbox>
-
-
-     
-              <paper-material elevation="1">
-                <h2 class="page-title">Contact</h2>
-                <p>This is the contact section</p>
-                <paper-date-picker-dialog id="picker" date="2000/1/1">Test</paper-date-picker-dialog>
-
-              </paper-material>
-     
-
-        </div>
-      </paper-scroll-header-panel>
-    </paper-drawer-panel>
-
-    <paper-toast id="toast">
-      <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok</span>
-    </paper-toast>
-
-    <!-- Uncomment next block to enable Service Worker support (1/2) -->
-    <!--
-    <paper-toast id="caching-complete"
-                 duration="6000"
-                 text="Caching complete! This app will work offline.">
-    </paper-toast>
-
-    <platinum-sw-register auto-register
-                          clients-claim
-                          skip-waiting
-                          on-service-worker-installed="displayInstalledToast">
-      <platinum-sw-cache default-cache-strategy="fastest"
-                         cache-config-file="cache-config.json">
-      </platinum-sw-cache>
-    </platinum-sw-register>
-    -->
-
+    </iron-pages>
+    </form>
+    </div>
   </template>
+
+  
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
   <!-- endbuild-->
   <script type="text/javascript">
     function submitForm() {
-    document.getElementById('form').submit();
-  }
+      document.getElementById('form').submit();
+    }
+    document.addEventListener('click', function(e) {
+      var clicker=e.srcElement.icon;
+      if(clicker == "arrow-forward"){
+        var pages = document.querySelector('iron-pages');
+        pages.selectNext();
+      }
+    });
   </script>
+    
+
 </body>
 
 </html>
