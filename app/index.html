@@ -118,7 +118,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <section>
             <paper-card >
                 <paper-toolbar>
-                    <div>Gender</div>
+                    <div>Let us know</div>
                 </paper-toolbar>
                 <div class="card-content">
                   When I see things like #search-item .search-article, #search-item .search-article, and #search-item .search-article I sense you are overspecifying your CSS which makes writing concise jQuery very difficult. This should be avoided if at all possible.
@@ -128,6 +128,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                         <paper-radio-button name="female">Female</paper-radio-button>
                         <paper-radio-button name="other">Others</paper-radio-button>
                 </paper-radio-group>
+                <paper-input name="dob" type="date" label="Date of Birth"></paper-input>
                 <div class="card-actions flex-end-justified">
                   <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
                 </div>
@@ -135,12 +136,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </section>
           
           <section>
-            <paper-card heading="Tobacco">
+            <paper-toolbar>
+                    <div>LifeStyle</div>
+                </paper-toolbar>
               <div class="card-content">
+                  <div class="card-content">
+                  Do you consume tobacco in any form?
+                  </div>
                  <paper-radio-group selected="big">
                     <paper-radio-button name="tobaccoyes">Yes</paper-radio-button>
                     <paper-radio-button name="tobaccono">No</paper-radio-button>
                   </paper-radio-group>
+                  <div class="card-content">
+                  this tsfd  jskfaj asfjafl adfls asfdja asdfalj
+                  </div>
+                  <div class="horizontal layout">
+                    <paper-input name="heightfeet" type="number" label="feet"></paper-input>
+                    <paper-input name="heightinches" type="number" label="inches"></paper-input>
+                  </div>
+                  <div class="card-content">
+                  this tsfd  jskfaj asfjafl adfls asfdja asdfalj
+                  </div>
+                  <div class="horizontal layout">
+                    <paper-input name="weight" type="number" label="kilogram"></paper-input>
+                  </div>
               </div>
               <div class="card-actions flex-end-justified">
                   <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
@@ -149,8 +168,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </section>
           
           <section>
-          <paper-card heading="Card Title">
-            <div class="card-content">Some content</div>
+              <paper-toolbar>
+                    <div>Whats your name</div>
+                </paper-toolbar>
+            <div class="card-content">
+                <div class="horizontal layout">
+                  <paper-input name="firstname" label="First Name"></paper-input>
+                  <paper-input name="lastname" label="Last Name"></paper-input>
+                </div>
+            </div>
             <div class="card-actions flex-end-justified">
                   <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
                 </div>
