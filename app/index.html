@@ -104,6 +104,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             @apply(--layout-horizontal);
             @apply(--layout-end-justified);
           }
+      paper-button.green {
+        background-color: var(--paper-green-500);
+        color: white;
+      }
     </style>
    </head>
 
@@ -136,14 +140,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           </section>
           
           <section>
-            <paper-toolbar>
+             <paper-toolbar>
                     <div>LifeStyle</div>
                 </paper-toolbar>
               <div class="card-content">
                   <div class="card-content">
                   Do you consume tobacco in any form?
                   </div>
-                 <paper-radio-group selected="big">
+                 <paper-radio-group selected="tobaccono">
                     <paper-radio-button name="tobaccoyes">Yes</paper-radio-button>
                     <paper-radio-button name="tobaccono">No</paper-radio-button>
                   </paper-radio-group>
@@ -163,14 +167,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </div>
               <div class="card-actions flex-end-justified">
                   <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
-                </div>
-            </paper-card>
+                </div>            
           </section>
           
           <section>
-              <paper-toolbar>
+            <paper-toolbar>
                     <div>Whats your name</div>
-                </paper-toolbar>
+            </paper-toolbar>
             <div class="card-content">
                 <div class="horizontal layout">
                   <paper-input name="firstname" label="First Name"></paper-input>
@@ -179,11 +182,29 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </div>
             <div class="card-actions flex-end-justified">
                   <paper-fab icon="arrow-forward" title="Next">Next</paper-fab>
-                </div>
-          </paper-card>
+            </div>          
+          </section>
+
+          <section>
+          <paper-toolbar>
+                    <div>Some of products we recommend</div>
+                </paper-toolbar>
+            
+              <template is="dom-bind" id="conatiner">
+                <iron-ajax auto url="/api/product/all" handle-as="json" last-response="{{productList}}">
+                </iron-ajax>
+                <template is="dom-repeat" items="{{productList}}">
+                  <paper-material elevation="1">
+                    <paper-button raised toggle class="false">[[item.carrierName]]</paper-button>
+                  </paper-material>
+                </template>
+              </template> 
+              <div class="card-actions flex-end-justified">
+                  <paper-button raised  class="custom green" onclick="submitForm()">Submit</paper-button>
+              </div>            
           </section>
           
-          <paper-button raised onclick="submitForm()">Submit</paper-button>
+          
                 
     </iron-pages>
     </form>
